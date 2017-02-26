@@ -1,2 +1,10 @@
 <h1>Languages#show</h1>
 <p>Find me in app/views/languages/show.html.erb</p>
+
+<%= @language.name %>
+<%= image_tag(@language.icon, class: "lang-icons") %>
+
+<% @exercises.each do |exercise| %>
+<%= exercise.title %>
+<%= exercise.description %>
+<% end %>
