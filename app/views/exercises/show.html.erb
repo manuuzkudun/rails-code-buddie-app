@@ -2,6 +2,8 @@
 <p><%= @exercise.instruction %></p>
 <textarea></textarea>
 <a>Run code</a>
+<% puts "this is test" %>
+<% p @test %>
 <% content_for(:after_js) do %>
 <script type="text/javascript">
   var textarea = $('textarea')[0];
@@ -11,9 +13,6 @@
     lineWrapping: true}
   );
   myCodeMirror.getDoc().setValue(`<%= @value %>`);
-  $('a').on('click', function() {
-    console.log(myCodeMirror.getValue());
-  });
   $('a').on('click', function(event) {
     event.preventDefault();
     json = {
@@ -23,7 +22,7 @@
       test: `<%= @test %>`
     };
     $.post("http://localhost:8080/compile", json, function(data, error, xhr) {
-        console.log('the output of the server' + data.code);
+        console.log('the output of the server' + data.output);
     });
   });
 </script>
