@@ -1,0 +1,19 @@
+<h1><%= @exercise.title %></h1>
+<p><%= @exercise.instruction %></p>
+<textarea></textarea>
+<a>Run code</a>
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  var textarea = $('textarea')[0];
+  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
+    mode: "<%= @exercise.language.name.downcase %>",
+    lineNumbers: true,
+    lineWrapping: true}
+  );
+  myCodeMirror.getDoc().setValue(`<%= @value %>`);
+  $('a').on('click', function() {
+    console.log(myCodeMirror.getValue());
+  });
+  console.log("<%= @exercise.language.name.downcase %>")
+</script>
+<% end %>
