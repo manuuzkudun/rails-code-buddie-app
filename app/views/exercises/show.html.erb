@@ -10,6 +10,7 @@
     lineNumbers: true,
     lineWrapping: true}
   );
+  myCodeMirror.getDoc().setValue(`<%= @value %>`);
   $('a').on('click', function() {
     console.log(myCodeMirror.getValue());
   });
