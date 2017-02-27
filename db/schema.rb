@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170226184900) do
   create_table "exercise_files", force: :cascade do |t|
     t.text     "content"
     t.integer  "exercise_id"
-    t.string   "type"
+    t.string   "file_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["exercise_id"], name: "index_exercise_files_on_exercise_id", using: :btree
