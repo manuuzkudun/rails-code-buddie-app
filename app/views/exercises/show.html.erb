@@ -2,7 +2,7 @@
 <p><%= @exercise.instruction %></p>
 
 <textarea></textarea>
-<a>Run code</a>
+<a id="run-code">Run code</a>
 <% content_for(:after_js) do %>
 
 
@@ -15,7 +15,7 @@
     lineWrapping: true}
   );
   myCodeMirror.getDoc().setValue(`<%= raw @value %>`);
-  $('a').on('click', function(event) {
+  $("#run-code").on('click', function(event) {
     event.preventDefault();
     json = {
       langId: "<%= @lang_id %>",
