@@ -1,13 +1,15 @@
 <h1><%= @exercise.title %></h1>
 <p><%= @exercise.instruction %></p>
+
 <textarea></textarea>
 <a>Run code</a>
-<% puts "this is test" %>
-<% p @test %>
 <% content_for(:after_js) do %>
+
+
 <script type="text/javascript">
-  var textarea = $('textarea')[0];
-  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
+  /** Excercise Area **/
+  var excercise_attempt_area = $('textarea')[0];
+  var exerciseArea = CodeMirror.fromTextArea(excercise_attempt_area, {
     mode: "<%= @exercise.language.name.downcase %>",
     lineNumbers: true,
     lineWrapping: true}
@@ -28,3 +30,6 @@
   });
 </script>
 <% end %>
+
+<!-- added text area to display contents of test file if exists -->
+<textarea id="test-code" style="width: 1024px; height: 1024px;"><%= @exercise.exercise_files.first.content if @exercise.exercise_files.first %></textarea>
