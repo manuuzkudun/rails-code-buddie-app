@@ -18,7 +18,7 @@
   myCodeMirror.getDoc().setValue(`<%= raw @value %>`);
   $("#run-code").on('click', function(event) {
     event.preventDefault();
-    $("#output").empty();
+    // $("#output").empty();
     json = {
       langId: "<%= @lang_id %>",
       code: myCodeMirror.getValue(),
@@ -55,7 +55,7 @@
         } else {
           syntax_message = "<p class\"message-syntax-error\">Compile time error. Check your syntax!</p>"
         }
-        $("#output").append(
+        $("#output").html(
           "<div class=\"run-output\">" +
           syntax_message +
           test_output_message +
