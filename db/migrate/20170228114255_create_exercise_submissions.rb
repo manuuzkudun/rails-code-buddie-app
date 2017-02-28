@@ -3,7 +3,7 @@ class CreateExerciseSubmissions < ActiveRecord::Migration[5.0]
     create_table :exercise_submissions do |t|
       t.references :user, foreign_key: true
       t.references :exercise, foreign_key: true
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.text :answer
 
       t.timestamps
