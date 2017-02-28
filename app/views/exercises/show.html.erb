@@ -3,6 +3,7 @@
 
 <textarea></textarea>
 <a id="run-code">Run code</a>
+<div id="output"></div>
 <% content_for(:after_js) do %>
 
 
@@ -17,6 +18,7 @@
   myCodeMirror.getDoc().setValue(`<%= raw @value %>`);
   $("#run-code").on('click', function(event) {
     event.preventDefault();
+    $("#output").empty();
     json = {
       langId: "<%= @lang_id %>",
       code: myCodeMirror.getValue(),
@@ -24,9 +26,45 @@
       test: `<%= raw @test %>`
     };
     $.post("http://localhost:8080/compile", json, function(data, error, xhr) {
-        console.log('the output of the server' + data.output);
+        var server_data = data;
+        console.log('output');
+        console.dir(server_data);
+        var syntax_message;
+        var test_output_message = "";
+        if (server_data.output) {
+          syntax_message = "<p class=\"message-syntax-ok\">Syntax Ok</p>"
+          if (server_data.output.testSuccess) {
+            test_output_message = "<p class\"message-test-success\">All tests passed. Well done!</p>"
+          } else {
+            var failures = server_data.output.testFailures;
+            var failure_word = "failure"
+            if (failures.length > 1) {
+              failure_word = "failures"
+            }
+            test_output_message = "<div class\"message-test-error\">" +
+            failures.length + " " + failure_word;
+            failures.forEach(function(failure) {
+              var outputs = "<p>Your ouput:</p><p>" +
+                failure.actual + "</p>" +
+                "<p>Expected output:</p><p>" +
+                failure.expected + "</p>";
+              test_output_message += outputs
+            });
+            test_output_message += "</div>";
+          }
+        } else {
+          syntax_message = "<p class\"message-syntax-error\">Compile time error. Check your syntax!</p>"
+        }
+        $("#output").append(
+          "<div class=\"run-output\">" +
+          syntax_message +
+          test_output_message +
+          "</div>"
+        );
     });
+
   });
+
 </script>
 
 <% end %>
