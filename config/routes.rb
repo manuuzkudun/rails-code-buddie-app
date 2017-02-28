@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'exercise_submissions/create'
+
   devise_for :users
   root to:'languages#index'
   resources :languages, only: [:index, :show]
