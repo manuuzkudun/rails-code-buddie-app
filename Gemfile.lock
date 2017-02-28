@@ -51,6 +51,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     codemirror-rails (5.16.0)
       railties (>= 3.0, < 6.0)
@@ -183,6 +184,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  breadcrumbs_on_rails
   codemirror-rails
   devise
   figaro

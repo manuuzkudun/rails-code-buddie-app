@@ -12,6 +12,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render_breadcrumbs %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
