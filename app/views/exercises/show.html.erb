@@ -35,7 +35,8 @@
           syntax_message = "<p class=\"message-syntax-ok\">Syntax Ok</p>"
           if (server_data.output.testSuccess) {
             test_output_message = "<p class\"message-test-success\">All tests passed. Well done!</p>"
-            // $.post("/exercise_submissions")
+            $.post("/exercise_submissions", {code: json.code, exercise_id: <%= @exercise.id %>}, function(data, error, xhr) {
+            })
           } else {
             var failures = server_data.output.testFailures;
             var failure_word = "failure"
