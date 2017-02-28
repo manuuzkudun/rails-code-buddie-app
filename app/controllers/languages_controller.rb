@@ -1,4 +1,6 @@
 class LanguagesController < ApplicationController
+  add_breadcrumb "Home", :languages_path
+
   def index
     @languages = Language.all
   end
@@ -15,6 +17,8 @@ class LanguagesController < ApplicationController
       completed = submission.nil? ? false : submission.completed
       @submission_array << {exercise: exercise, completed: completed}
     end
+
+    add_breadcrumb @language.name, language_path(@language.id)
   end
 
 
