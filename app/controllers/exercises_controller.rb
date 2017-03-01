@@ -10,12 +10,16 @@ add_breadcrumb "Languages", :languages_path
   add_breadcrumb @exercise.language.name, language_path(@exercise.language.id)
   add_breadcrumb @exercise.title, exercise_path(@exercise.id)
   @comments = get_exercise_comments(params[:id])
+  @submissions = get_exercise_submissions
   end
 
 private
 
-  def get_exercise_comments(id)
-    exercise = Exercise.find(id)
-    ExerciseComment.where(exercise: exercise)
-  end
+def get_exercise_comments(id)
+  exercise = Exercise.find(id)
+  ExerciseComment.where(exercise: exercise)
+end
+
+def get_exercise_submissions
+  submissions = ExerciseSubmission.where(exercise_id: @exercise)
 end
