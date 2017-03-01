@@ -23,3 +23,5 @@ end
 def get_exercise_submissions
   submissions = ExerciseSubmission.where(exercise_id: @exercise)
 end
+
+end
