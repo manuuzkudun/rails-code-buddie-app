@@ -4,6 +4,7 @@
   <div class="exercise-submission">
     <h4><%= submission.user.email %> </h4>
     <pre><%= submission.answer %> </pre>
+    <div><%= gravatar_for(submission.user)%></div>
   </div>
   <% end %>
 </div>

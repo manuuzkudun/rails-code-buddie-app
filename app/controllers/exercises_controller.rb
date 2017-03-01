@@ -10,7 +10,6 @@ add_breadcrumb "Languages", :languages_path
   add_breadcrumb @exercise.language.name, language_path(@exercise.language.id)
   add_breadcrumb @exercise.title, exercise_path(@exercise.id)
     get_exercise_submissions
-
   end
 
 
