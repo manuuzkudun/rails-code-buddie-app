@@ -24,10 +24,12 @@ languages.each do |language|
   html_file = open(url)
   html_doc = Nokogiri::HTML(html_file)
 
-  html_doc.search('.available_exercises_listing li').each do |element|
-    title = element.search('a')[0].text
-    description = element.search('.tagline')[0].text
-    language.exercises.create(title: title, description: description)
+  html_doc.search('.available_exercises_listing li').each_with_index do |element, index|
+    if index < 10
+      title = element.search('a')[0].text
+      description = element.search('.tagline')[0].text
+      language.exercises.create(title: title, description: description)
+    end
   end
 end
 

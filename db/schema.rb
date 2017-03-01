@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20170228114255) do
   create_table "exercise_submissions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "exercise_id"
-    t.boolean  "completed"
+    t.boolean  "completed",   default: false
     t.text     "answer"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["exercise_id"], name: "index_exercise_submissions_on_exercise_id", using: :btree
     t.index ["user_id"], name: "index_exercise_submissions_on_user_id", using: :btree
   end

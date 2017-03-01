@@ -10,7 +10,7 @@ html_doc = Nokogiri::HTML(html_file)
 # gets the language blocks
 html_doc.search('a.track_link').each do |language_block|
   name = language_block.search("p").first.text
-  if( ["PHP", "Python", "Java", "JavaScript", "Ruby", "Julia", "Elixir"].include?(name))
+  if( ["PHP", "Python", "JavaScript", "Ruby"].include?(name))
     filename = language_block.search("img").first.attributes["src"].value
     uri = URI.join( base_url, filename ).to_s
 
