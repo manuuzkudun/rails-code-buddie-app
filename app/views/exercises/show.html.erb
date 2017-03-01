@@ -11,9 +11,9 @@
     <%= render 'shared/video_conference' %>
   </div>
 </div>
+<%= render 'shared/comments' %>
 
 <% content_for(:after_js) do %>
-
 
 <script type="text/javascript">
   /** Excercise Area **/
@@ -78,3 +78,5 @@
 </script>
 
 <% end %>
+
+<%= render 'submitted_exercises' %>
