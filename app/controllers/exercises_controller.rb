@@ -9,5 +9,13 @@ add_breadcrumb "Languages", :languages_path
     @value = "class SimpleNumber\ndef initialize(num)\nraise unless num.is_a?(Numeric)\n@x = num\nend\ndef add(y)\n@x + y\nend\ndef multiply(y)\n@x * y\nend\nend"
   add_breadcrumb @exercise.language.name, language_path(@exercise.language.id)
   add_breadcrumb @exercise.title, exercise_path(@exercise.id)
+  @comments = get_exercise_comments(params[:id])
+  end
+
+private
+
+  def get_exercise_comments(id)
+    exercise = Exercise.find(id)
+    ExerciseComment.where(exercise: exercise)
   end
 end
