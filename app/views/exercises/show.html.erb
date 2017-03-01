@@ -1,12 +1,19 @@
 <h1><%= @exercise.title %></h1>
 <p><%= @exercise.instruction %></p>
 
-<textarea></textarea>
-<a id="run-code">Run code</a>
-<div id="output"></div>
+<div class="row">
+  <div class="col-sm-8">
+    <textarea></textarea>
+    <a id="run-code">Run code</a>
+    <div id="output"></div>
+  </div>
+  <div class="col-sm-4">
+    <%= render 'shared/video_conference' %>
+  </div>
+</div>
+
 <% content_for(:after_js) do %>
 
-<%= render 'shared/video_conference' %>
 
 <script type="text/javascript">
   /** Excercise Area **/

@@ -1,15 +1,8 @@
-<script src="https://static.opentok.com/v2/js/opentok.js" charset="utf-8"></script>
+<div style="width: 400px; height: 400px;">
+  <div id="video-conference">
+    <div id="subscriber"></div>
+    <div id="publisher"></div>
+  </div>
+</div>
 
-<script charset="utf-8">
-  var apiKey = '45784152';
-  var sessionId = '2_MX40NTc4NDE1Mn5-MTQ4ODM2ODg0MzMyMH54Tmw0OWNJeG9RWlJWUXd2eHE2ZVZETDh-fg';
-  var token = 'T1==cGFydG5lcl9pZD00NTc4NDE1MiZzaWc9NWFhNDA1NjE1Y2M2ZWNmNjBjOTBhZTc0MDU3ZDRhNzljNmNlM2E5NzpzZXNzaW9uX2lkPTJfTVg0ME5UYzROREUxTW41LU1UUTRPRE0yT0RnME16TXlNSDU0VG13ME9XTkplRzlSV2xKV1VYZDJlSEUyWlZaRVREaC1mZyZjcmVhdGVfdGltZT0xNDg4MzY5MzM3Jm5vbmNlPTAuMjkyMDI0MDIwNDA2MjIzOSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDg4MzcyOTM0';
-  var session = OT.initSession(apiKey, sessionId)
-    .on('streamCreated', function(event) {
-      session.subscribe(event.stream);
-    })
-    .connect(token, function(error) {
-      var publisher = OT.initPublisher();
-      session.publish(publisher);
-    });
-</script>
+<script src="https://static.opentok.com/v2/js/opentok.js"></script>
