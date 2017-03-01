@@ -1,2 +1,15 @@
-<div id="otEmbedContainer" style="width:320px; height:240px"></div>
-<script src="https://tokbox.com/embed/embed/ot-embed.js?embedId=2b942838-2bc0-4d21-8efc-79dcc87a48b5"></script>
+<script src="https://static.opentok.com/v2/js/opentok.js" charset="utf-8"></script>
+
+<script charset="utf-8">
+  var apiKey = '45784152';
+  var sessionId = '2_MX40NTc4NDE1Mn5-MTQ4ODM2ODg0MzMyMH54Tmw0OWNJeG9RWlJWUXd2eHE2ZVZETDh-fg';
+  var token = 'T1==cGFydG5lcl9pZD00NTc4NDE1MiZzaWc9NWFhNDA1NjE1Y2M2ZWNmNjBjOTBhZTc0MDU3ZDRhNzljNmNlM2E5NzpzZXNzaW9uX2lkPTJfTVg0ME5UYzROREUxTW41LU1UUTRPRE0yT0RnME16TXlNSDU0VG13ME9XTkplRzlSV2xKV1VYZDJlSEUyWlZaRVREaC1mZyZjcmVhdGVfdGltZT0xNDg4MzY5MzM3Jm5vbmNlPTAuMjkyMDI0MDIwNDA2MjIzOSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDg4MzcyOTM0';
+  var session = OT.initSession(apiKey, sessionId)
+    .on('streamCreated', function(event) {
+      session.subscribe(event.stream);
+    })
+    .connect(token, function(error) {
+      var publisher = OT.initPublisher();
+      session.publish(publisher);
+    });
+</script>
