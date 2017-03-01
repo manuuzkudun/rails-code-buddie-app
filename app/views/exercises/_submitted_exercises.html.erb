@@ -1,0 +1,9 @@
+<h2>Exercise Submissions</h2>
+<div class="exercise-submissions">
+<% @submissions.each do |submission|  %>
+  <div class="exercise-submission">
+    <h4><%= submission.user.email %> </h4>
+    <pre><%= submission.answer %> </pre>
+  </div>
+  <% end %>
+</div>
