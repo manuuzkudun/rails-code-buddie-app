@@ -7,5 +7,3 @@
 //= require codemirror/modes/python
 //= require codemirror/modes/php
 //= require_tree .
-
-
