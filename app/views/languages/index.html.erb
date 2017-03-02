@@ -1,9 +1,7 @@
-<div class="container-fluid">
-  <h1>Languages</h1>
-
+<div class="languages-wrapper">
   <% @languages.each do |language| %>
-  <%= link_to language do %>
-  <div class="card col-md-3">
+  <%= link_to language, class: "language-link" do %>
+  <div class="card lang-card">
     <%= image_tag(language.icon, class: "lang-icons") %>
     <div class="card-block">
       <p class="language-name"><%= language.name %></p>
@@ -12,4 +10,6 @@
   </div>
   <% end %>
   <% end %>
+</div>
+<div class="push-footer">
 </div>

@@ -2,3 +2,50 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.languages-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 100px;
+  margin-top: 70px;
+}
+ a {
+  text-decoration: none!important;
+ }
+
+.lang-icons {
+  width: 100px;
+  height: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.lang-card {
+  border: 2px solid $purple;
+  width: 700px;
+  height: 200px;
+  margin-top: 50px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.lang-card:hover {
+  box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
+  border-color: $blue;
+  background-color: lighten($blue, 60%);
+}
+
+.language-name {
+  font-weight: bold;
+  font-size: 28px;
+  color: $purple;
+}
+
+.exercise-count {
+  color: $blue;
+  font-size: 20px;
+}
+.push-footer {
+  height: 130px;
+}
