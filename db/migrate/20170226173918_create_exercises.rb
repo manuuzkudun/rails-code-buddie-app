@@ -5,7 +5,6 @@ class CreateExercises < ActiveRecord::Migration[5.0]
       t.references :language, foreign_key: true
       t.string :description
       t.text :instruction
-      t.integer :level
 
       t.timestamps
     end
