@@ -1,5 +1,5 @@
 .tabs {
-  background: #53443F;
+  background: #f0f1ff;
   display: flex;
   padding: 10px 10px 0 10px
 }
@@ -17,11 +17,13 @@
   margin-top: 0;
 }
 .tabs p {
-  opacity: 0.5;
+  color: #404040;
+  font-weight: bold;
+  opacity: 0.8;
   margin-bottom: 0;
 }
 .tab {
-  background: #756A66;
+  background: inherit;
   flex: 0 0 25%;
   text-align: center;
   padding: 20px 0;
