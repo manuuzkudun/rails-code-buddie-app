@@ -1,0 +1,49 @@
+.exercises-wrapper {
+  padding: 10px 60px;
+}
+
+.exercises-header {
+  display: flex;
+  align-items: center;
+  .lang-icons {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px 0 0;
+  }
+  h1 {
+    color: $black;
+  }
+}
+
+.table-exercises {
+  margin-top: 10px;
+  td {
+    padding: 0 60px 0 0;
+  }
+  thead {
+    color: $purple;
+    font-size: 24px;
+  }
+  tr {
+    height: 50px;
+  }
+  tbody {
+    font-size: 18px;
+    tr:hover {
+      background-color: lighten($blue, 60%);
+      cursor: pointer;
+    }
+    color: $black;
+
+    .exercise-title {
+      font-weight: bold;
+    }
+  }
+  i {
+    font-size: 20px;
+    background-color: $green;
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+  }
+}
