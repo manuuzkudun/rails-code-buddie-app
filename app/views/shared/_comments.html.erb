@@ -1,6 +1,32 @@
-<% @comments.each do |comment| %>
-<div>
-  <p><%= comment.content %></p>
-  <h4><%= comment.user.email %></h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="page-header">
+        <h1><small class="pull-right"> <%= @comments.count %> comments</small> Comments </h1>
+      </div>
+      <div class="comments-list">
+      <% @comments.each do |comment| %>
+       <div class="media">
+         <p class="pull-right"><small>5 days ago</small></p>
+         <a class="media-left" href="#">
+          <%= gravatar_for(comment.user)%>
+        </a>
+        <div class="media-body">
+
+          <h4 class="media-heading user_name"> <%=comment.user.email%></h4>
+          <%= comment.content %>
+
+          <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+        </div>
+      </div>
+      <% end %>
+
+
 </div>
-<% end %>
+
+
+
+</div>
+</div>
+</div>
