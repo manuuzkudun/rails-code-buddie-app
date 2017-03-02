@@ -1,82 +1,43 @@
 <h1><%= @exercise.title %></h1>
-<p><%= @exercise.instruction %></p>
 
-<div class="row">
-  <div class="col-sm-8">
-    <textarea></textarea>
-    <a id="run-code">Run code</a>
-    <div id="output"></div>
-  </div>
-  <div class="col-sm-4">
-    <%= render 'shared/video_conference' %>
-  </div>
+<div class="tabs">
+  <a class="tab active" data-target="#problem">
+    <p>Problem</p>
+  </a>
+  <a class="tab" data-target="#submissions">
+    <p>Submissions</p>
+  </a>
+  <a class="tab" data-target="#comments">
+    <p>Discussions</p>
+  </a>
 </div>
-<%= render 'shared/comments' %>
+
+<div class="tab-content" id="problem">
+  <%= render 'shared/problem' %>
+</div>
+
+<div class="tab-content hidden" id="comments">
+  <%= render 'shared/comments' %>
+</div>
+
+<div class="tab-content hidden" id="submissions">
+  <%= render 'shared/submitted_exercises' %>
+</div>
 
 <% content_for(:after_js) do %>
-
 <script type="text/javascript">
-  /** Excercise Area **/
-  var excercise_attempt_area = $('textarea')[0];
-  var myCodeMirror = CodeMirror.fromTextArea(excercise_attempt_area, {
-    mode: "<%= @exercise.language.name.downcase %>",
-    lineNumbers: true,
-    lineWrapping: true}
-  );
-  myCodeMirror.getDoc().setValue(`<%= raw @value %>`);
-  $("#run-code").on('click', function(event) {
+  $(".tab").on("click", function(event) {
     event.preventDefault();
-    // $("#output").empty();
-    json = {
-      langId: "<%= @lang_id %>",
-      code: myCodeMirror.getValue(),
-      stdIn: "",
-      test: `<%= raw @test %>`
-    };
-    $.post("http://localhost:8080/compile", json, function(data, error, xhr) {
-        var server_data = data;
-        console.log('output');
-        console.dir(server_data);
-        var syntax_message;
-        var test_output_message = "";
-        if (server_data.output) {
-          syntax_message = "<p class=\"message-syntax-ok\">Syntax Ok</p>"
-          if (server_data.output.testSuccess) {
-            test_output_message = "<p class\"message-test-success\">All tests passed. Well done!</p>"
-            $.post("/exercise_submissions", {code: json.code, exercise_id: <%= @exercise.id %>}, function(data, error, xhr) {
-            })
-          } else {
-            var failures = server_data.output.testFailures;
-            var failure_word = "failure"
-            if (failures.length > 1) {
-              failure_word = "failures"
-            }
-            test_output_message = "<div class\"message-test-error\">" +
-            failures.length + " " + failure_word;
-            failures.forEach(function(failure) {
-              var outputs = "<p>Your ouput:</p><p>" +
-                failure.actual + "</p>" +
-                "<p>Expected output:</p><p>" +
-                failure.expected + "</p>";
-              test_output_message += outputs
-            });
-            test_output_message += "</div>";
-          }
-        } else {
-          syntax_message = "<p class\"message-syntax-error\">Compile time error. Check your syntax!</p>"
-        }
-        $("#output").html(
-          "<div class=\"run-output\">" +
-          syntax_message +
-          test_output_message +
-          "</div>"
-        );
-    });
-
+    // Change active tab
+    $('.active').toggleClass('active')
+    $(this).toggleClass('active');
+    // Hide all tab-content (use class="hidden")
+    $('.tab-content').addClass('hidden');
+    // Show target tab-content (use class="hidden")
+    var target = $(this).data('target');
+    $(target).toggleClass('hidden');
   });
-
 </script>
-
 <% end %>
 
-<%= render 'shared/submitted_exercises' %>
+
