@@ -1,0 +1,10 @@
+.breadcrumbs {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 10px;
+  li {
+    list-style: none;
+    color: $purple;
+    padding: 0 10px 0 10px;
+  }
+}
