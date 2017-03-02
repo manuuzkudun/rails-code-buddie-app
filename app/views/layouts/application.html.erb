@@ -12,7 +12,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render_breadcrumbs %>
+    <div class="breadcrumbs">
+    <%= render_breadcrumbs :tag => :li, :separator => " > " %>
+    </div>
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
