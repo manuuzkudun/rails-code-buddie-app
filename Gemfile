@@ -17,7 +17,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'codemirror-rails'
-gem "breadcrumbs_on_rails"
+gem 'breadcrumbs_on_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'binding_of_caller'
