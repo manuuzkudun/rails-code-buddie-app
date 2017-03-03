@@ -1,14 +1,15 @@
-<p><%= @exercise.instruction %></p>
+<div class="container">
+  <p class="exercise-instruction"><%= @exercise.instruction %></p>
 
-<div class="row">
-  <div class="col-sm-8">
-    <textarea></textarea>
-    <a id="run-code">Run code</a>
-    <div id="output"></div>
+  <div class="row">
+    <div class="col-sm-8 code-input">
+      <textarea></textarea>
+      <a class="btn btn-primary btn-run" id="run-code">Run code</a>
+      <div id="output"></div>
+    </div>
+    <div class="col-sm-4">
+    </div>
   </div>
-<!--   <div class="col-sm-4">
-    <%= render 'shared/video_conference' %>
-  </div> -->
 </div>
 
 
@@ -50,16 +51,27 @@
           if (failures.length > 1) {
             failure_word = "failures"
           }
-          test_output_message = "<div class\"message-test-error\">" +
-          failures.length + " " + failure_word;
+          test_output_message = ""
+          test_output_tabs = "<div class=\"test-tabs\">";
+          tab_content = "";
+          count = 0
           failures.forEach(function(failure) {
-            var outputs = "<p>Your ouput:</p><p>" +
-            failure.actual + "</p>" +
-            "<p>Expected output:</p><p>" +
-            failure.expected + "</p>";
-            test_output_message += outputs
+            count += 1;
+            if (count === 1) {
+              test_output_tabs += ("<a class=\"test-tab active\" data-target=\"#test" +
+                count + "\"><p>" + failure.testName + "</p></a>");
+              tab_content += ("<div class=\"test-tab-content\" id=\"test" + count +
+                "\"><p>Your output:</p><p>" + failure.actual + "</p><p>Expected output:</p><p>" +
+                failure.expected + "</p></div>");
+            } else {
+              test_output_tabs += ("<a class=\"test-tab\" data-target=\"#test" +
+                count + "\"<p>" + failure.testName + "</p></a>");
+              tab_content += ("<div class=\"test-tab-content hidden\" id=\"test" + count +
+                "\"><p>Your output:</p><p>" + failure.actual + "</p><p>Expected output:</p><p>" +
+                failure.expected + "</p></div>");
+            }
           });
-          test_output_message += "</div>";
+          test_output_tabs += "</div>";
         }
       } else {
         syntax_message = "<p class\"message-syntax-error\">Compile time error. Check your syntax!</p>"
@@ -68,8 +80,21 @@
         "<div class=\"run-output\">" +
         syntax_message +
         test_output_message +
+        test_output_tabs +
+        tab_content +
         "</div>"
         );
+      $(".test-tab").on("click", function(event) {
+        event.preventDefault();
+        // Change active tab
+        $('.active').toggleClass('active')
+        $(this).toggleClass('active');
+        // Hide all tab-content (use class="hidden")
+        $('.test-tab-content').addClass('hidden');
+        // Show target tab-content (use class="hidden")
+        var target = $(this).data('target');
+        $(target).toggleClass('hidden');
+      });
     });
 
   });
