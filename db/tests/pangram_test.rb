@@ -6,11 +6,6 @@ require_relative 'code'
 
 # Test data version: # f04fb3d
 class PangramTest < Minitest::Test
-  def test_sentence_empty
-    phrase = ''
-    result = Pangram.pangram?(phrase)
-    refute result, "Expected: false \nActual: #{result.inspect}"
-  end
 
   def test_pangram_with_only_lower_case
     phrase = 'the quick brown fox jumps over the lazy dog'
