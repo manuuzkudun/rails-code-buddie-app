@@ -17,10 +17,6 @@ class RaindropsTest < Minitest::Test
     assert_equal 'Plong', Raindrops.convert(7)
   end
 
-  def test_6
-    assert_equal 'Pling', Raindrops.convert(6)
-  end
-
   def test_8
     assert_equal '8', Raindrops.convert(8)
   end
