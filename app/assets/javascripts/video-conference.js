@@ -12,6 +12,12 @@ $(document).ready(function() {
     token = res.token;
 
     initializeSession();
+
+
+    $("#code-help").on("click", function() {
+      $("#video-conference").slideToggle()
+    });
+
   });
 });
 
@@ -40,7 +46,7 @@ function initializeSession() {
         width: '100%',
         height: '100%'
       });
-
+      $("#video-conference").hide();
       session.publish(publisher);
     } else {
       console.log('There was an error connecting to the session: ', error.code, error.message);
