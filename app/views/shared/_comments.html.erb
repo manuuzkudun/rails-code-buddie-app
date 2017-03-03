@@ -5,10 +5,10 @@
       <div class="page-header">
         <h1><small class="pull-right"> <%= @comments.count %> comments</small> Comments </h1>
       </div>
-      <div class="comments-list">
+      <div class="submission comments-list">
       <% @comments.each do |comment| %>
        <div class="media">
-         <p class="pull-right"><small>5 days ago</small></p>
+         <p class="pull-right"><small>3 days ago</small></p>
          <a class="media-left" href="#">
           <%= gravatar_for(comment.user)%>
         </a>
