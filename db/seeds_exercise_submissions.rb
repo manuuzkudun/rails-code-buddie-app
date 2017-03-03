@@ -4,9 +4,10 @@ ExerciseSubmission.create(completed: true, user_id: 1, exercise_id: 1, answer: "
   end
 end")
 
-ExerciseSubmission.create(completed: true, user_id: 3, exercise_id: 2, answer: " class HelloWorld
-    chars1 = strand1.chars
+ExerciseSubmission.create(completed: true, user_id: 3, exercise_id: 2, answer: " class Hamming
+  def self.compute(strand1, strand2)
 
+    chars1 = strand1.chars
     chars2 = strand2.chars
 
     count = 0
@@ -20,11 +21,13 @@ ExerciseSubmission.create(completed: true, user_id: 3, exercise_id: 2, answer: "
     return count
 ")
 
-ExerciseSubmission.create(completed: true, user_id: 2, exercise_id: 2, answer:"     chars1 = strand1.chars
-    count = 0
+ExerciseSubmission.create(completed: true, user_id: 2, exercise_id: 2, answer:"
+  def self.compute(strand1, strand2)
 
+    chars1 = strand1.chars
     chars2 = strand2.chars
 
+    count = 0
 
     chars1.each_with_index do |char, index|
 
@@ -32,7 +35,8 @@ ExerciseSubmission.create(completed: true, user_id: 2, exercise_id: 2, answer:" 
 
     end
 
-    return count")
+    return count
+")
 
 
 

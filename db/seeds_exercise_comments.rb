@@ -1,11 +1,3 @@
-exercise_comment = ExerciseComment.new(content: "This exercise helped me understand the concept")
-
-user_ids = [1,2]
-
-user_ids.each do |id|
-  ExerciseComment.create(content: Faker::Lorem.sentence, user_id: id, exercise_id: 1)
-end
-
 ExerciseComment.create(content: "Classic!", user_id: 2, exercise_id: 1)
 ExerciseComment.create(content: "Well, what can I say? Took me 10 sec...", user_id: 4, exercise_id: 1)
 
