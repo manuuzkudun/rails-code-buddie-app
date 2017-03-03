@@ -11,9 +11,17 @@
   flex-direction: column;
 }
 
+.code-btns {
+  text-align: right;
+}
+
 .btn-run {
   background-color: $blue;
   width: 20%;
   border-radius: 4px;
-  align-self: flex-end;
+}
+
+.btn-help {
+  width: 20%;
+  border-radius: 4px;
 }
