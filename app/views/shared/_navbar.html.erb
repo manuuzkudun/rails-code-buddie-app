@@ -16,7 +16,7 @@
           <div class="navbar-user-data">
             <%= current_user.email.split('@')[0] %>
             <%= gravatar_for(current_user) %>
-            Logout
+            <%=link_to "Logout", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", :method => :delete %>
           </div>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
