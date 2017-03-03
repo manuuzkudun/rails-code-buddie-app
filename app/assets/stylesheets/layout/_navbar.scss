@@ -9,6 +9,17 @@
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.company-name {
+  text-align: left;
+  color: white;
+  .company-name2 {
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    font-size: 18px;
+    margin-top: 10px;
+  }
 }
 
 /* Optional class to fix the navbar on top */
@@ -31,6 +42,10 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+  .h1 {
+    align-items: left;
+    color: white;
+  }
 }
 
 /* Navbar right section (with form, links, button) */

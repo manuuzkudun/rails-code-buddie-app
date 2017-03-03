@@ -1,9 +1,11 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo-white.png" %>
-  <% end %>
-
+  <div class="company-name">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo-white.png" %>
+    <% end %>
+    <span class="company-name2">Code Buddies</span>
+  </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -59,5 +61,6 @@
       </ul>
     </div>
   </div>
+
 </div>
 
