@@ -44,9 +44,11 @@
       var syntax_message;
       var test_output_message = "";
       if (server_data.output) {
-        syntax_message = "<p class=\"message-syntax-ok\">Syntax Ok</p>"
+        test_output_tabs = "";
+        tab_content = "";
+        syntax_message = "<p class=\"output-message\">Compile message:</p><pre class=\"message-syntax-ok\">Syntax OK</pre>"
         if (server_data.output.testSuccess) {
-          test_output_message = "<p class\"message-test-success\">All tests passed. Well done!</p>"
+          test_output_message = "<p class=\"message-test-success\">All tests passed. Well done!</p>"
           $.post("/exercise_submissions", {code: json.code, exercise_id: <%= @exercise.id %>}, function(data, error, xhr) {
           })
         } else {
@@ -65,28 +67,28 @@
               test_output_tabs += ("<a class=\"test-tab active\" data-target=\"#test" +
                 count + "\"><p>" + failure.testName + "</p></a>");
               tab_content += ("<div class=\"test-tab-content\" id=\"test" + count +
-                "\"><p>Your output:</p><p>" + failure.actual + "</p><p>Expected output:</p><p>" +
-                failure.expected + "</p></div>");
+                "\"><p class=\"output-message\">Your output:</p><pre>" + failure.actual + "</pre><p class=\"output-message\">Expected output:</p><pre>" +
+                failure.expected + "</pre></div>");
             } else {
               test_output_tabs += ("<a class=\"test-tab\" data-target=\"#test" +
-                count + "\"<p>" + failure.testName + "</p></a>");
+                count + "\"><p>" + failure.testName + "</p></a>");
               tab_content += ("<div class=\"test-tab-content hidden\" id=\"test" + count +
-                "\"><p>Your output:</p><p>" + failure.actual + "</p><p>Expected output:</p><p>" +
-                failure.expected + "</p></div>");
+                "\"><p class=\"output-message\">Your output:</p><pre>" + failure.actual + "</pre><p class=\"output-message\">Expected output:</p><pre>" +
+                failure.expected + "</pre></div>");
             }
           });
           test_output_tabs += "</div>";
         }
       } else {
-        syntax_message = "<p class\"message-syntax-error\">Compile time error. Check your syntax!</p>"
+        syntax_message = "<p class=\"message-syntax-error\">Compile time error. Check your syntax!</p>"
       }
       $("#output").html(
-        "<div class=\"run-output\">" +
+        "<div class=\"output-wrapper\"><h2>Test results</h2><div class=\"run-output\">" +
         syntax_message +
         test_output_message +
         test_output_tabs +
         tab_content +
-        "</div>"
+        "</div></div>"
         );
       $(".test-tab").on("click", function(event) {
         event.preventDefault();

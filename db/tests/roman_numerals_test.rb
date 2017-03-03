@@ -16,10 +16,6 @@ class RomanNumeralsTest < Minitest::Test
     assert_equal 'XCIII', 93.to_roman
   end
 
-  def test_141
-    assert_equal 'CXLI', 141.to_roman
-  end
-
   def test_402
     assert_equal 'CDII', 402.to_roman
   end
