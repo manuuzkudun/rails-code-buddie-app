@@ -16,10 +16,10 @@
 }
 
 .test-tabs {
-  background: #f0f1ff;
   display: flex;
   position: absolute;
   top: -50px;
+  left: -1px;
 }
 .test-tabs a {
   color: $purple;
@@ -29,27 +29,26 @@
   text-decoration: none;
   opacity: 0.8;
 }
-.test-tabs h3 {
-  font-size: 17px;
-  font-weight: bold;
-  margin-top: 0;
-}
-.test-tabs p {
-  opacity: 0.5;
-  margin-bottom: 0;
-}
 .test-tab {
   background: #f0f1ff;
-  flex: 0 0 18%;
-  text-align: center;
-  padding: 20px 0;
-  height: 30px;
+  flex: 0 0 20%;
+  height: 50px;
+  border: 1px solid lighten($blue, 40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+  }
 }
 .test-tab:first-child {
-  border-radius: 10px 0 0 0;
+  border-radius: 2px 0 0 0;
 }
 .test-tab:last-child {
-  border-radius: 0 10px 0 0;
+  border-radius: 0 2px 0 0;
 }
 .test-tab.active {
   background: white;
