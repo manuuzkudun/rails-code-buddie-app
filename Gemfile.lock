@@ -189,6 +189,7 @@ DEPENDENCIES
   bootstrap-sass
   breadcrumbs_on_rails
   codemirror-rails
+  coderay
   devise
   faker
   figaro
