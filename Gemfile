@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
-
 gem 'rails', '5.0.1'
 gem 'puma'
 gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
-
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -20,21 +18,14 @@ gem 'codemirror-rails'
 gem 'breadcrumbs_on_rails'
 gem 'faker'
 gem "opentok", "~> 2.3"
-
 gem 'kramdown', '1.12.0'
-
 gem 'coderay'
-
-
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-
   #gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-

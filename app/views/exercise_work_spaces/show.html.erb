@@ -1,0 +1,41 @@
+<h1 class="show-exercise-title"><%= @exercise.title %></h1>
+<p class="exercise-description"><%= @exercise.description %></p>
+<div class="tabs">
+  <a class="tab active" data-target="#problem">
+    <p>Problem</p>
+  </a>
+  <a class="tab" data-target="#submissions">
+    <p>Submissions</p>
+  </a>
+  <a class="tab" data-target="#comments">
+    <p>Discussions</p>
+  </a>
+</div>
+
+<div class="tab-content" id="problem">
+  <%= render 'shared/problem' %>
+</div>
+
+<div class="tab-content hidden" id="comments">
+  <%= render 'shared/comments' %>
+</div>
+
+<div class="tab-content hidden" id="submissions">
+  <%= render 'shared/submitted_exercises' %>
+</div>
+
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  $(".tab").on("click", function(event) {
+    event.preventDefault();
+    // Change active tab
+    $('.active').toggleClass('active')
+    $(this).toggleClass('active');
+    // Hide all tab-content (use class="hidden")
+    $('.tab-content').addClass('hidden');
+    // Show target tab-content (use class="hidden")
+    var target = $(this).data('target');
+    $(target).toggleClass('hidden');
+  });
+</script>
+<% end %>

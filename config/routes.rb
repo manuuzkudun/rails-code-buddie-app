@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :exercise_work_spaces,
+    only: [:show, :create, :update]
+
   resources :playground_work_spaces,
     only: [:index, :create, :show, :new, :destroy],
     path: 'playgrounds'
