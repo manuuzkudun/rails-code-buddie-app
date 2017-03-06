@@ -15,7 +15,11 @@
     <% @submission_array.each do |submission| %>
     <% exercise = submission[:exercise] %>
     <tr>
-      <td class="exercise-title"><%= link_to exercise.title, exercise_path(exercise) %></td>
+      <td class="exercise-title">
+        <%= link_to exercise.title,
+          exercise_work_spaces_path(:exercise => exercise),
+          :method => :post %>
+      </td>
       <td><%= exercise.description %></td>
       <% if submission[:completed] %>
         <td><i class="fa fa-check" aria-hidden="true"></i></td>
