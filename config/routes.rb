@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/home'
+
   resources :exercise_work_spaces,
     only: [:show, :create, :update]
 
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :exercise_comments, only: [:index, :create, :show]
   devise_for :users
-  root to:'languages#index'
+  root to:'static_pages#home'
   resources :languages, only: [:index, :show]
   resources :exercises, only: [:show]
   resources :exercise_submissions, only: [:create]
