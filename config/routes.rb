@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'work_spaces/index'
-
-  get 'work_spaces/create'
-
-  get 'work_spaces/show'
-
-  get 'work_spaces/config_opentok'
+  resources :playground_work_spaces,
+    only: [:index, :create, :show, :new, :destroy],
+    path: 'playgrounds'
 
   resources :exercise_comments, only: [:index, :create, :show]
   devise_for :users

@@ -1,0 +1,2 @@
+class PlaygroundWorkSpace < WorkSpace
+end
