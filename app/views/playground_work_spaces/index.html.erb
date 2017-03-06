@@ -1,0 +1,11 @@
+<% @work_spaces.each do |workspace| %>
+  <div class="workspace_card">
+    <h3><%= workspace.name %></h3>
+    <%= image_tag(workspace.language.icon, class: "lang-icons") %>
+    <p>Language: <%= workspace.language.name %></p>
+    <p>Created: <%= workspace.created_at %></p>
+    <p>Last update: <%= workspace.updated_at %></p>
+    <a href="/playgrounds/<%= workspace.id %>" class="btn btn-primary">Show workspace</a>
+    <a class="btn btn-danger">Delete workspace</a>
+  </div>
+<% end %>

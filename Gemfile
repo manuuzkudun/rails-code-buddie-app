@@ -19,6 +19,7 @@ gem 'devise'
 gem 'codemirror-rails'
 gem 'breadcrumbs_on_rails'
 gem 'faker'
+gem "opentok", "~> 2.3"
 
 gem 'kramdown', '1.12.0'
 
