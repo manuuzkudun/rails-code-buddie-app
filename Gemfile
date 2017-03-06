@@ -19,7 +19,11 @@ gem 'devise'
 gem 'codemirror-rails'
 gem 'breadcrumbs_on_rails'
 gem 'faker'
+
+gem 'kramdown', '1.12.0'
+
 gem 'coderay'
+
 
 group :development, :test do
   gem 'binding_of_caller'
