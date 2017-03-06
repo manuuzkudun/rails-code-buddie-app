@@ -11,7 +11,7 @@ class ExerciseWorkSpacesController < ApplicationController
     @exercise = @workspace.exercise
     @lang_id = "1"
     @test = @workspace.exercise.exercise_files.where(file_type: "test")[0].content
-    @value = @workspace.exercise.exercise_files.where(file_type: "initial_code")[0].content
+    @value = @workspace.user_code
     @comments = get_exercise_comments(@workspace.exercise)
     @submissions = get_exercise_submissions(@workspace.exercise)
     add_breadcrumb "Home", languages_path
@@ -35,6 +35,9 @@ class ExerciseWorkSpacesController < ApplicationController
   end
 
   def update
+    @workspace = ExerciseWorkSpace.find(params[:id])
+    @workspace.user_code = params[:code]
+    @workspace.save
   end
 
   private

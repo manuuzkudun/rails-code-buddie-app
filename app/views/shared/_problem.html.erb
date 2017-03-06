@@ -5,6 +5,7 @@
 
       <textarea></textarea>
       <div class="code-btns">
+        <a class="btn btn-primary btn-save" id="save-code">Save</a>
         <a class="btn btn-primary btn-run" id="run-code">Run code</a>
         <a class="btn btn-success btn-help" id="code-help">Find help</a>
       </div>
@@ -105,6 +106,19 @@
 
   });
 
+</script>
+
+<script>
+  $("#save-code").on("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/exercise_work_spaces/<%= @workspace.id %>',
+      type: 'PUT',
+      data: {code: myCodeMirror.getValue()},
+      success: function(data) {
+      }
+    });
+  })
 </script>
 
 <% end %>
