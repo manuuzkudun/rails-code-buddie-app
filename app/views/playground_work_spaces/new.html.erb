@@ -1,10 +1,29 @@
-<%= form_for @work_space do |f| %>
+<div class="container">
+  <h2 class="form-title">Add New Workspace/Playground</h2>
+  <div class="form-inputs">
+    <%= simple_form_for @work_space do |f| %>
 
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
+    <%= f.label :language %>
+    <%= f.collection_select :language, Language.all, :id, :name, prompt: true %>
+  </div>
 
-  <%= f.label :language %>:
-  <%= f.collection_select :language, Language.all, :id, :name, prompt: true %>
+  <div class="form-actions">
+    <%= f.button :submit, "Create Playground" %>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+    <% end %>
+</div>
+
+
+<div class="push-footer">
+</div>
+
+
+
+
+
+
+
+
