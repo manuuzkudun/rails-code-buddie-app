@@ -1,7 +1,10 @@
-<div class="languages-wrapper">
-  <% @languages.each do |language| %>
+<div class="container">
+  <div class="row">
+  <% @languages.each_with_index do |language, index| %>
   <%= link_to language, class: "language-link" do %>
-  <div class="card lang-card">
+  <% class_name = "col-md-5 col-sm-12 card lang-card" %>
+  <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
+  <div class="<%= class_name %>">
     <%= image_tag(language.icon, class: "lang-icons") %>
     <div class="card-block">
       <p class="language-name"><%= language.name %></p>
@@ -10,6 +13,7 @@
   </div>
   <% end %>
   <% end %>
+  </div>
 </div>
 <div class="push-footer">
 </div>

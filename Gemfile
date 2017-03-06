@@ -21,6 +21,11 @@ gem 'breadcrumbs_on_rails'
 gem 'faker'
 gem "opentok", "~> 2.3"
 
+gem 'kramdown', '1.12.0'
+
+gem 'coderay'
+
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
