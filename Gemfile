@@ -19,6 +19,7 @@ gem 'devise'
 gem 'codemirror-rails'
 gem 'breadcrumbs_on_rails'
 gem 'faker'
+gem 'coderay'
 
 group :development, :test do
   gem 'binding_of_caller'
