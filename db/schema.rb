@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306155721) do
+ActiveRecord::Schema.define(version: 20170307121054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20170306155721) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "work_space_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "work_space_id"
+    t.string   "role"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_work_space_users_on_user_id", using: :btree
+    t.index ["work_space_id"], name: "index_work_space_users_on_work_space_id", using: :btree
+  end
+
   create_table "work_spaces", force: :cascade do |t|
     t.string   "name"
     t.string   "session_id"
@@ -105,6 +115,8 @@ ActiveRecord::Schema.define(version: 20170306155721) do
   add_foreign_key "exercise_submissions", "exercises"
   add_foreign_key "exercise_submissions", "users"
   add_foreign_key "exercises", "languages"
+  add_foreign_key "work_space_users", "users"
+  add_foreign_key "work_space_users", "work_spaces"
   add_foreign_key "work_spaces", "exercises"
   add_foreign_key "work_spaces", "languages"
   add_foreign_key "work_spaces", "users"
