@@ -6,6 +6,7 @@ class LanguagesController < ApplicationController
     @work_spaces = PlaygroundWorkSpace.where(
       user: current_user,
     ).order("created_at DESC")
+    @work_space = PlaygroundWorkSpace.new
   end
 
   def show
