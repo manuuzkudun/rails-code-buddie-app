@@ -11,10 +11,9 @@ Rails.application.routes.draw do
 
   resources :exercise_comments, only: [:index, :create, :show]
 
-  devise_for :users
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  
+
   root to:'static_pages#home'
   resources :languages, only: [:index, :show]
   resources :exercises, only: [:show]

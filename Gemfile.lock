@@ -55,7 +55,6 @@ GEM
       sass (>= 3.3.4)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
-    byebug (9.0.6)
     codemirror-rails (5.16.0)
       railties (>= 3.0, < 6.0)
     coderay (1.1.1)
@@ -139,9 +138,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.4.2)
-      byebug (~> 9.0)
-      pry (~> 0.10)
     pry-rails (0.3.5)
       pry (>= 0.9.10)
     public_suffix (2.0.5)
@@ -237,7 +233,6 @@ DEPENDENCIES
   omniauth-github
   opentok (~> 2.3)
   pg
-  pry-byebug
   pry-rails
   puma
   rails (= 5.0.1)
