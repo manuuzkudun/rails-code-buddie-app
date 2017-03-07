@@ -5,7 +5,8 @@ EXERCISES.each do |exercise|
     title: exercise[:title],
     description: exercise[:description],
     language: Language.find_by(name: exercise[:language_name]),
-    instruction: exercise[:instruction]
+    instruction: exercise[:instruction],
+    number_of_tests: exercise[:number_of_tests]
   )
   ExerciseFile.create(
     content: exercise[:initial_code],

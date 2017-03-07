@@ -15,7 +15,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/hello_world.txt"),
     test: readFile("db/tests/hello_world_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/hello_world.rb")
+    initial_code: readFile("db/exercises/initial_code/hello_world.rb"),
+    number_of_tests: 1
   },
   {
     title: "Hamming",
@@ -23,7 +24,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/hamming.txt"),
     test: readFile("db/tests/hamming_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/hamming.rb")
+    initial_code: readFile("db/exercises/initial_code/hamming.rb"),
+    number_of_tests: 5
   },
   {
     title: "Gigasecond",
@@ -31,7 +33,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/gigasecond.txt"),
     test: readFile("db/tests/gigasecond_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/gigasecond.rb")
+    initial_code: readFile("db/exercises/initial_code/gigasecond.rb"),
+    number_of_tests: 5
   },
   {
     title: "Raindrops",
@@ -39,7 +42,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/raindrops.txt"),
     test: readFile("db/tests/raindrops_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/raindrops.rb")
+    initial_code: readFile("db/exercises/initial_code/raindrops.rb"),
+    number_of_tests: 5
   },
   {
     title: "Difference of Squares",
@@ -47,7 +51,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/difference_of_squares.txt"),
     test: readFile("db/tests/difference_of_squares_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/difference_of_squares.rb")
+    initial_code: readFile("db/exercises/initial_code/difference_of_squares.rb"),
+    number_of_tests: 5
   },
   {
     title: "Pangram",
@@ -55,7 +60,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/pangram.txt"),
     test: readFile("db/tests/pangram_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/pangram.rb")
+    initial_code: readFile("db/exercises/initial_code/pangram.rb"),
+    number_of_tests: 5
   },
   {
     title: "Sieve",
@@ -63,7 +69,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/sieve.txt"),
     test: readFile("db/tests/sieve_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/sieve.rb")
+    initial_code: readFile("db/exercises/initial_code/sieve.rb"),
+    number_of_tests: 5
   },
   {
     title: "Roman Numerals",
@@ -71,7 +78,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/roman_numerals.txt"),
     test: readFile("db/tests/roman_numerals_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/roman_numerals.rb")
+    initial_code: readFile("db/exercises/initial_code/roman_numerals.rb"),
+    number_of_tests: 5
   },
   {
     title: "Nth prime",
@@ -79,7 +87,8 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/nth_prime.txt"),
     test: readFile("db/tests/nth_prime_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/nth_prime.rb")
+    initial_code: readFile("db/exercises/initial_code/nth_prime.rb"),
+    number_of_tests: 4
   },
   {
     title: "Grains",
@@ -87,6 +96,7 @@ EXERCISES = [
     language_name: "Ruby",
     instruction: readFile("db/exercises/instructions/grains.txt"),
     test: readFile("db/tests/grains_test.rb"),
-    initial_code: readFile("db/exercises/initial_code/grains.rb")
+    initial_code: readFile("db/exercises/initial_code/grains.rb"),
+    number_of_tests: 4
   }
 ]
