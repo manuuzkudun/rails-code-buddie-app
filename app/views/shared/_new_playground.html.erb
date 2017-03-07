@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="form-title">Add New Workspace/Playground</h2>
+  <h3 class="form-title">Create New Playground</h3>
   <div class="form-inputs">
     <%= simple_form_for @work_space do |f| %>
 
@@ -8,22 +8,8 @@
     <%= f.label :language %>
     <%= f.collection_select :language, Language.all, :id, :name, prompt: true %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Create Playground" %>
   </div>
-
     <% end %>
 </div>
-
-
-<div class="push-footer">
-</div>
-
-
-
-
-
-
-
-

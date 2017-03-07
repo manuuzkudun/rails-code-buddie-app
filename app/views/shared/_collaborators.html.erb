@@ -1,0 +1,3 @@
+<% @collaborators.each do |collaborator| %>
+<div><%= gravatar_for(collaborator) %> <%= collaborator.email %></div>
+<% end %>
