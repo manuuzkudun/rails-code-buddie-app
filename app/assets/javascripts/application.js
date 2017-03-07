@@ -29,7 +29,7 @@ apiUrl = "http://localhost:8080/compile";
     $("#loader").html("<img src='/assets/ajax-loader.gif' alt='loading' />")
   }
 
-  function showCodeOutput(data) {
+  function showSyntax(data) {
     var syntax_message;
     if (data.output) {
       syntax_message = "<pre class=\"message-syntax-ok\">Syntax OK</pre>";
