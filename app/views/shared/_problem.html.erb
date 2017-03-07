@@ -7,8 +7,13 @@
       <div class="code-btns">
         <a class="btn btn-primary btn-save" id="save-code">Save</a>
         <a class="btn btn-primary btn-run" id="run-code">Run code</a>
-        <a class="btn btn-success btn-help" id="code-help">Find help</a>
+        <a class="btn btn-success btn-help" id="code-help">Video chat</a>
       </div>
+    </div>
+    <div class="col-sm-4 invite-form">
+      <%= render 'shared/invite_form' %>
+    </div>
+    <div class="col-sm-4" id="collaborators">
     </div>
     <div class="col-sm-4">
       <%= render 'shared/video_conference' %>
@@ -37,6 +42,11 @@
 
 
 <% content_for(:after_js) do %>
+<script type="text/javascript">
+  if (<%= @collaborators.length %> > 0) {
+    $("#collaborators").html("<%= escape_javascript render(:partial => 'shared/collaborators') %>");
+  }
+</script>
 
 <script type="text/javascript">
   var myCodeMirror = codeMirrorInit(

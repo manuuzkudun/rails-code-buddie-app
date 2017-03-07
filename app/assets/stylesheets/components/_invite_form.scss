@@ -1,0 +1,18 @@
+.invite-form {
+  form {
+    display: flex;
+    align-items: center;
+    label {
+      font-weight: initial;
+      margin: 0 3px 0 0;
+    }
+    .email {
+      height: 30px;
+      border-radius: 2px;
+      margin-right: 3px;
+    }
+    button {
+      border-radius: 4px;
+    }
+  }
+}
