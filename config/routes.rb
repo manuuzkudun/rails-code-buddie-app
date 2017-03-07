@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get 'static_pages/home'
 
+  resources :work_space_users,
+    only: [:new, :create]
+
   resources :exercise_work_spaces,
     only: [:show, :create, :update]
 

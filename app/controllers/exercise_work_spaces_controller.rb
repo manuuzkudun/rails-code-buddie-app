@@ -14,6 +14,12 @@ class ExerciseWorkSpacesController < ApplicationController
     @value = @workspace.user_code
     @comments = get_exercise_comments(@workspace.exercise)
     @submissions = get_exercise_submissions(@workspace.exercise)
+    @collaborators = []
+    if @workspace.work_space_users.length > 0
+      @workspace.work_space_users.each do |user|
+        @collaborators.push(user.user)
+      end
+    end
     add_breadcrumb "Home", languages_path
     add_breadcrumb @exercise.language.name, language_path(@exercise.language.id)
     add_breadcrumb @exercise.title, exercise_path(@exercise.id)
