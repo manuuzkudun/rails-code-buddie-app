@@ -1,5 +1,7 @@
+<div> <h2>Dashboard</h2></div>
 <div class="container">
   <div class="row">
+  <div class="text-center"><h3>Exercises</h3></div>
     <% @languages.each_with_index do |language, index| %>
     <%= link_to language, class: "language-link" do %>
     <% class_name = "col-md-5 col-sm-12 card lang-card" %>
@@ -15,5 +17,12 @@
     <% end %>
   </div>
 </div>
+
+<div class="spaced text-center">
+  <h3>Playgrounds</h3>
+</div>
+
+<%= render 'shared/playground_work_spaces' %>
+
 <div class="push-footer">
 </div>

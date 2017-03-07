@@ -1,0 +1,31 @@
+<div class="add-workspace">
+  <a href="/playgrounds/new" class="btn btn-primary">Add Workspace</a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @work_spaces.each_with_index do |workspace, index| %>
+    <%= link_to workspace, class: "workspace-link" do %>
+    <% class_name = "col-md-5 col-sm-12 card workspace_card" %>
+    <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
+    <div class="<%= class_name %>">
+          <div class="card-block">
+            <p class="workspace-name"><%= workspace.name %></p>
+            <%= image_tag(workspace.language.icon, class: "lang-icons") %>
+            <p class="content">Language: <%= workspace.language.name %></p>
+            <p class="content">Created: <%= workspace.created_at %></p>
+            <p class="content">Last update: <%= workspace.updated_at %></p>
+            <div class=".btns">
+              <a href="/playgrounds/<%= workspace.id %>" class="btn btn-primary btn-xs">Show workspace</a>
+              <a class="btn btn-danger btn-xs">Delete workspace</a>
+            </div>
+          </div>
+      </div>
+    <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="push-footer">
+</div>

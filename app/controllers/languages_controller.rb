@@ -3,6 +3,9 @@ class LanguagesController < ApplicationController
 
   def index
     @languages = Language.all
+    @work_spaces = PlaygroundWorkSpace.where(
+      user: current_user,
+    ).order("created_at DESC")
   end
 
   def show
