@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20170305141305) do
     t.integer  "language_id"
     t.string   "description"
     t.text     "instruction"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "number_of_tests"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["language_id"], name: "index_exercises_on_language_id", using: :btree
   end
 

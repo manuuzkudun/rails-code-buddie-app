@@ -21,12 +21,52 @@ apiUrl = "http://localhost:8080/compile";
     return textEditor;
   }
 
+  function showTestHeader() {
+    $("#testHeader").html("<h3>Test results</h3>");
+  }
+
+  function showLoadingGif() {
+    $("#loader").html("<img src='/assets/ajax-loader.gif' alt='loading' />")
+  }
+
   function showCodeOutput(data) {
     var syntax_message;
     if (data.output) {
-      syntax_message = "<p class=\"output-message\">Compile message:</p><pre class=\"message-syntax-ok\">Syntax OK</pre>";
+      syntax_message = "<pre class=\"message-syntax-ok\">Syntax OK</pre>";
     } else {
       syntax_message = "<p class=\"message-syntax-error\">Compile time error. Check your syntax!</p>";
     }
     $("#output").html(syntax_message);
   }
+
+  function showProgressBar() {
+    $("#progressBar").html(
+      "<div id=\"progress\"><div id=\"bar\"><span>0%</span></div></div>"
+    );
+  }
+
+  function updateProgressBar(tagetWidth) {
+    var elem = document.getElementById("bar");
+    var width = 0;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= tagetWidth) {
+        clearInterval(id);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+        elem.innerHTML = width * 1 + '%';
+        elem.style.paddingLeft = "20px";
+      }
+    }
+  }
+
+  function calculateTestOutput(num, data) {
+    return (num - data.output.testFailures.length)/num * 100
+  }
+
+  function showPassedTests(passed, total) {
+    $("#passedTests").html("<div>" +
+      passed + "/" + total + "</div>")
+  }
+
