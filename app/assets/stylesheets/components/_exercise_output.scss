@@ -26,11 +26,14 @@
   color: $green;
 }
 
+
 .message-syntax-error {
   margin-bottom: 20px;
   color: $red;
   font-size: 18px;
   margin-top: 10px;
+  white-space: pre-wrap;
+  padding: 20px;
 }
 
 .message-test-success {

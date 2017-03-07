@@ -34,7 +34,18 @@ apiUrl = "http://localhost:8080/compile";
     if (data.output) {
       syntax_message = "<pre class=\"message-syntax-ok\">Syntax OK</pre>";
     } else {
-      syntax_message = "<p class=\"message-syntax-error\">Compile time error. Check your syntax!</p>";
+      syntax_message += '<pre class=\"message-syntax-error\">' + data.errors +  '</pre>';
+    }
+    $("#output").html(syntax_message);
+  }
+  function showCodeOutput(data) {
+    var syntax_message = "<h4>Compiler message:</h4>";
+    if (data.output) {
+      syntax_message += "<pre class=\"message-syntax-ok\">Syntax OK</pre>";
+      syntax_message += "<h4>Compiler output:</h4>"
+      syntax_message += "<pre>" + data.output + "</pre>";
+    } else {
+      syntax_message += '<pre class=\"message-syntax-error\">' + data.errors +  '</pre>';
     }
     $("#output").html(syntax_message);
   }

@@ -1,0 +1,55 @@
+
+// /* -------------------------------------
+//  * CSS code specific to home page
+//  * (margin/padding adjustments)
+//  * ------------------------------------- */
+
+ .add-workspace {
+  text-align: center
+ }
+ a {
+  text-decoration: none!important;
+ }
+.lang-icons {
+  width: 100px;
+  height: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.workspace_card {
+  border: 2px solid $purple;
+  height: 300px;
+  margin-top: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-block {
+  text-align: center;
+}
+.workspace_card:hover {
+  box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
+  border-color: $blue;
+  background-color: lighten($blue, 60%);
+}
+.workspace-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: $purple;
+}
+.content {
+  color: $blue;
+  font-size: 10px;
+}
+.btn-xs, .btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 2px;
+  margin-top: 3px;
+}
+
+.push-footer {
+  height: 200px;
+}
