@@ -21,6 +21,7 @@ gem "opentok", "~> 2.3"
 gem 'kramdown', '1.12.0'
 gem 'coderay'
 gem 'omniauth-github'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'binding_of_caller'

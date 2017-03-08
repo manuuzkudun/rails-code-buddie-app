@@ -28,8 +28,8 @@ function initializeSession() {
   session.on('streamCreated', function(event) {
     session.subscribe(event.stream, 'subscriber', {
       insertMode: 'append',
-      width: '100%',
-      height: '100%'
+      width: '320px',
+      height: '240px'
     });
   });
 
@@ -43,8 +43,8 @@ function initializeSession() {
     if (!error) {
       var publisher = OT.initPublisher('publisher', {
         insertMode: 'append',
-        width: '100%',
-        height: '100%'
+        width: '320px',
+        height: '240px'
       });
       $("#video-conference").hide();
       session.publish(publisher);
