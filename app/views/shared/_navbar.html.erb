@@ -17,7 +17,11 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <div class="navbar-user-data">
-            <%= current_user.email.split('@')[0] %>
+          <% if current_user.first_name != nil %>
+            <%= link_to "Hi #{current_user.first_name}!", languages_path, :class => "navbar-user-data" %>
+            <% else %>
+            <%= link_to current_user.email.split('@')[0], languages_path, :class => "navbar-user-data" %>
+            <% end %>
             <%= gravatar_for(current_user) %>
             <%=link_to "Logout", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", :method => :delete %>
           </div>
