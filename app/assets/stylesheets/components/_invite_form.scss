@@ -20,7 +20,7 @@
   }
   h4 {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 22px;
     display: flex;
     justify-content: center;
@@ -30,4 +30,6 @@
   input::placeholder {
     color: lighten($blue, 40%);
   }
+
+  margin-bottom: 20px;
 }

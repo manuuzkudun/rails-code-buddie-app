@@ -44,7 +44,7 @@
 <% content_for(:after_js) do %>
 <script type="text/javascript">
   if (<%= @collaborators.length %> > 0) {
-    $("#collaborators").html("<%= escape_javascript render(:partial => 'shared/collaborators') %>");
+    $("#collaborators").html("<div class=\"collaborators\"><h4>Collaborators</h4><%= escape_javascript render(:partial => 'shared/collaborators') %></div>");
   }
 </script>
 
