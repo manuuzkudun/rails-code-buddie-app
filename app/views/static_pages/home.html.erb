@@ -22,15 +22,15 @@
 
         <div class="email-field">
           <%= f.label :email %><br />
-          <%= f.email_field :email,  :class => 'form-control' %>
+          <%= f.email_field :email,  :class => 'form-control', :placeholder => 'ilovecoding@gmail.com'  %>
         </div>
       </br>
 
       <div class="input-group">
         <span class="input-group-addon">Password</span>
-        <%= f.password_field :password,  :class => 'form-control', :placeholder => 'password' %>
-        <span class="input-group-addon" style="border-left: 0; border-right: 0;">Password Confirmation</span>
-        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'password confirmation' %>
+        <%= f.password_field :password,  :class => 'form-control', :placeholder => '......' %>
+        <span class="input-group-addon" style="border-left: 0; border-right: 0;">Confirm Password</span>
+        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => '......' %>
       </div>
 
     </br>
@@ -77,7 +77,7 @@
     </div>
 
 
-    <!-- Languages -->
+    <!-- Available Languages -->
     <div class="container">
       <div class="row">
         <h1 class="intro">Available Languages</h1>

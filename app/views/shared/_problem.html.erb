@@ -142,4 +142,29 @@
   })
 </script>
 
+<script>
+
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+myCodeMirror.on('keyup', function() {
+  delay(function(){
+    $.ajax({
+      url: '/exercise_work_spaces/<%= @workspace.id %>',
+      type: 'PUT',
+      data: {code: myCodeMirror.getValue()},
+      success: function(data) {}
+      });
+    }, 1000 );
+});
+
+
+</script>
+
+
 <% end %>

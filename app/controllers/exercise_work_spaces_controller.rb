@@ -51,6 +51,8 @@ class ExerciseWorkSpacesController < ApplicationController
     @workspace = ExerciseWorkSpace.find(params[:id])
     @workspace.user_code = params[:code]
     @workspace.save
+    ActionCable.server.broadcast 'workspace_channel',
+      user_code:  params[:code]
   end
 
   private

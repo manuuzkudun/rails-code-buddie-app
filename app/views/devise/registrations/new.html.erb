@@ -11,7 +11,11 @@
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
+    <%= link_to user_github_omniauth_authorize_path, :class => "btn btn-primary", id: "sign_in" do %>
+    Sign up with Github  <i class="fa fa-github"></i>
+    <% end %>
   </div>
+
 <% end %>
 
 
@@ -19,5 +23,6 @@
 
 
 </div>
+
 
   <div class="push-footer"></div>

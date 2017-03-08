@@ -20,13 +20,14 @@
   border-radius: 4px;
   display: flex;
   align-items: center;
+  border-color: $blue;
 }
 
-.lang-card:hover {
-  box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
-  border-color: $blue;
-  background-color: lighten($blue, 60%);
-}
+// .lang-card:hover {
+//   box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
+//   border-color: $blue;
+//   background-color: lighten($blue, 60%);
+// }
 
 .language-name {
   font-weight: bold;
@@ -49,7 +50,7 @@ div.signup {
   padding-top: 10px;
   padding-bottom: 25px;
   box-shadow: 2px 2px #888888;
-  border: 1px solid black;
+  border: 1px solid $blue;
   border-radius: 5px;
 }
 
