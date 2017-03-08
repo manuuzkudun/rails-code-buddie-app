@@ -8,7 +8,8 @@
 //= require codemirror/modes/php
 //= require_tree .
 
-apiUrl = "http://localhost:8080/compile";
+//apiUrl = "http://localhost:8080/compile";
+apiUrl = "http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile";
 
   function codeMirrorInit(elementId, language, userCode) {
     var excercise_attempt_area = $(elementId)[0];
