@@ -7,7 +7,7 @@
       <div class="code-btns">
         <a class="btn btn-primary btn-save" id="save-code">Save</a>
         <a class="btn btn-primary btn-run" id="run-code">Run code</a>
-        <a class="btn btn-primary btn-run" id="submit-code">Submit</a>
+        <a class="btn btn-primary btn-run inactive" id="submit-code">Submit</a>
         <a class="btn btn-success btn-help" id="code-help">Video chat</a>
       </div>
     </div>
@@ -80,6 +80,9 @@
           calculateTestOutput(<%= @exercise.number_of_tests %>, data)
         );
         showPassedTests(<%= @exercise.number_of_tests %> - data.output.testFailures.length, <%= @exercise.number_of_tests %>)
+        if (data.output.testFailures.length === 0) {
+          $("#submit-code").removeClass("inactive")
+        }
       } else {
         showPassedTests(0, <%= @exercise.number_of_tests %>)
       }
@@ -90,30 +93,39 @@
 </script>
 
 <script type="text/javascript">
+  myCodeMirror.on("change", function(event) {
+    $("#submit-code").addClass("inactive")
+  })
+</script>
+
+<script type="text/javascript">
   $("#submit-code").on("click", function(event) {
     event.preventDefault();
-    if ("<%= @id %>" === "false") {
-      $.ajax({
-        url: '/exercise_submissions',
-        type: 'POST',
-        data: {
-          code: myCodeMirror.getValue(),
-          exercise: <%= @workspace.exercise.id %>
-        },
-        success: function(data) {}
-      });
-    } else {
-      $.ajax({
-        url: '/exercise_submissions/' + "<%= @id %>",
-        type: 'PUT',
-        data: {
-          code: myCodeMirror.getValue(),
-          exercise: <%= @workspace.exercise.id %>
-        },
-        success: function(data) {}
-      });
+    if (!($("#submit-code").hasClass("inactive"))) {
+      if ("<%= @id %>" === "false") {
+        $.ajax({
+          url: '/exercise_submissions',
+          type: 'POST',
+          data: {
+            code: myCodeMirror.getValue(),
+            exercise: <%= @workspace.exercise.id %>
+          },
+          success: function(data) {}
+        });
+      } else {
+        $.ajax({
+          url: '/exercise_submissions/' + "<%= @id %>",
+          type: 'PUT',
+          data: {
+            code: myCodeMirror.getValue(),
+            exercise: <%= @workspace.exercise.id %>
+          },
+          success: function(data) {}
+        });
+      }
+      $("#save-code").click();
+      location.reload();
     }
-    location.reload();
   })
 </script>
 
