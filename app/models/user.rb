@@ -4,11 +4,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:github]
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, :lastseenable, omniauth_providers: [:github]
 
-
-def self.find_for_github_oauth(auth)
+  def self.find_for_github_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     name = auth.info.name.split(" ")
     user_params[:first_name] = name.first
@@ -27,6 +26,10 @@ def self.find_for_github_oauth(auth)
     end
 
     return user
+  end
+
+  def logged_in?
+    self.last_seen < 5.minutes.ago
   end
 
 

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :languages, only: [:index, :show]
   resources :exercises, only: [:show]
-  resources :exercise_submissions, only: [:create]
+  resources :exercise_submissions, only: [:create, :update]
 
   mount ActionCable.server, at: '/cable'
 

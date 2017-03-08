@@ -21,6 +21,22 @@
   border-radius: 4px;
 }
 
+.inactive {
+  background-color: lighten($blue, 40%);
+  border-color: lighten($blue, 30%);
+}
+
+.inactive:hover {
+  cursor: default;
+  background-color: lighten($blue, 40%);
+  border-color: lighten($blue, 30%);
+}
+
+.inactive:focus {
+  cursor: default;
+  background-color: lighten($blue, 40%);
+}
+
 .btn-help {
   width: 20%;
   border-radius: 4px;
