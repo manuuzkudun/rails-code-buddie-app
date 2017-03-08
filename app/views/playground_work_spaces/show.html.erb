@@ -22,7 +22,7 @@
 <script type="text/javascript">
 
   // Initialize text editor
-  var textEditor = codeMirrorInit('#code-editor', "Ruby", `<%= raw @userCode %>`);
+  var myCodeMirror = codeMirrorInit('#code-editor', "Ruby", `<%= raw @userCode %>`);
 
   // When the run-code button is clicked, send code to compile to the API
   $("#run-code").on('click', function(event) {
@@ -30,7 +30,7 @@
     // Data to send to the API
     code_data = {
       language: "<%= @language %>",
-      code: textEditor.getValue()
+      code: myCodeMirror.getValue()
     };
     // Send a POST request to the API
     $.post(apiUrl, code_data)
@@ -41,5 +41,44 @@
   });
 
 </script>
+
+
+<script>
+  $("#save-code").on("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/exercise_work_spaces/<%= @workspace.id %>',
+      type: 'PUT',
+      data: {code: myCodeMirror.getValue()},
+      success: function(data) {
+      }
+    });
+  })
+</script>
+
+<script>
+
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+myCodeMirror.on('keyup', function() {
+  delay(function(){
+    $.ajax({
+      url: '/exercise_work_spaces/<%= @workspace.id %>',
+      type: 'PUT',
+      data: {code: myCodeMirror.getValue()},
+      success: function(data) {}
+      });
+    }, 1000 );
+});
+
+
+</script>
+
 
 <% end %>

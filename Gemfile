@@ -22,6 +22,7 @@ gem 'kramdown', '1.12.0'
 gem 'coderay'
 gem 'omniauth-github'
 gem 'coffee-rails'
+gem 'devise_lastseenable'
 
 group :development, :test do
   gem 'binding_of_caller'

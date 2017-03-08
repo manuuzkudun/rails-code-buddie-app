@@ -83,3 +83,4 @@ apiUrl = "http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile"
       passed + "/" + total + "</div>")
   }
 
+
