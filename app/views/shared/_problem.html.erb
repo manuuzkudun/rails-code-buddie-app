@@ -7,6 +7,7 @@
       <div class="code-btns">
         <a class="btn btn-primary btn-save" id="save-code">Save</a>
         <a class="btn btn-primary btn-run" id="run-code">Run code</a>
+        <a class="btn btn-primary btn-run inactive" id="submit-code">Submit</a>
         <a class="btn btn-success btn-help" id="code-help">Video chat</a>
       </div>
     </div>
@@ -44,7 +45,7 @@
 <% content_for(:after_js) do %>
 <script type="text/javascript">
   if (<%= @collaborators.length %> > 0) {
-    $("#collaborators").html("<%= escape_javascript render(:partial => 'shared/collaborators') %>");
+    $("#collaborators").html("<div class=\"collaborators\"><h4>Collaborators</h4><%= escape_javascript render(:partial => 'shared/collaborators') %></div>");
   }
 </script>
 
@@ -79,6 +80,9 @@
           calculateTestOutput(<%= @exercise.number_of_tests %>, data)
         );
         showPassedTests(<%= @exercise.number_of_tests %> - data.output.testFailures.length, <%= @exercise.number_of_tests %>)
+        if (data.output.testFailures.length === 0) {
+          $("#submit-code").removeClass("inactive")
+        }
       } else {
         showPassedTests(0, <%= @exercise.number_of_tests %>)
       }
@@ -86,6 +90,43 @@
     });
   });
 
+</script>
+
+<script type="text/javascript">
+  myCodeMirror.on("change", function(event) {
+    $("#submit-code").addClass("inactive")
+  })
+</script>
+
+<script type="text/javascript">
+  $("#submit-code").on("click", function(event) {
+    event.preventDefault();
+    if (!($("#submit-code").hasClass("inactive"))) {
+      if ("<%= @id %>" === "false") {
+        $.ajax({
+          url: '/exercise_submissions',
+          type: 'POST',
+          data: {
+            code: myCodeMirror.getValue(),
+            exercise: <%= @workspace.exercise.id %>
+          },
+          success: function(data) {}
+        });
+      } else {
+        $.ajax({
+          url: '/exercise_submissions/' + "<%= @id %>",
+          type: 'PUT',
+          data: {
+            code: myCodeMirror.getValue(),
+            exercise: <%= @workspace.exercise.id %>
+          },
+          success: function(data) {}
+        });
+      }
+      $("#save-code").click();
+      location.reload();
+    }
+  })
 </script>
 
 <script>
@@ -100,5 +141,30 @@
     });
   })
 </script>
+
+<script>
+
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+myCodeMirror.on('keyup', function() {
+  delay(function(){
+    $.ajax({
+      url: '/exercise_work_spaces/<%= @workspace.id %>',
+      type: 'PUT',
+      data: {code: myCodeMirror.getValue()},
+      success: function(data) {}
+      });
+    }, 1000 );
+});
+
+
+</script>
+
 
 <% end %>

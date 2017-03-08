@@ -35,7 +35,8 @@ apiUrl = "http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile"
     if (data.output) {
       syntax_message = "<pre class=\"message-syntax-ok\">Syntax OK</pre>";
     } else {
-      syntax_message += '<pre class=\"message-syntax-error\">' + data.errors +  '</pre>';
+      syntax_message = '<div class=\"message-syntax-error\">' +
+      "Compile time error. Check your syntax!" +  '</div>';
     }
     $("#output").html(syntax_message);
   }
@@ -81,4 +82,5 @@ apiUrl = "http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile"
     $("#passedTests").html("<div>" +
       passed + "/" + total + "</div>")
   }
+
 

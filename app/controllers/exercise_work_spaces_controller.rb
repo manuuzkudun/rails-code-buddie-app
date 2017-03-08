@@ -20,6 +20,13 @@ class ExerciseWorkSpacesController < ApplicationController
         @collaborators.push(user.user)
       end
     end
+    @id = "false"
+    if ExerciseSubmission.where(user: current_user, exercise: @workspace.exercise).length > 0
+      @id = ExerciseSubmission.where(user: current_user, exercise: @workspace.exercise)[0].id
+    end
+    puts "id here"
+    p @id
+    p ExerciseSubmission.where(user: current_user, exercise: @workspace.exercise)
     add_breadcrumb "Home", languages_path
     add_breadcrumb @exercise.language.name, language_path(@exercise.language.id)
     add_breadcrumb @exercise.title, exercise_path(@exercise.id)
@@ -44,6 +51,8 @@ class ExerciseWorkSpacesController < ApplicationController
     @workspace = ExerciseWorkSpace.find(params[:id])
     @workspace.user_code = params[:code]
     @workspace.save
+    ActionCable.server.broadcast 'workspace_channel',
+      user_code:  params[:code]
   end
 
   private
