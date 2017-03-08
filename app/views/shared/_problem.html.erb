@@ -68,7 +68,7 @@
     };
     showTestHeader();
     showLoadingGif();
-    $.post("https://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile", json).done(function(data) {
+    $.post("http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile", json).done(function(data) {
       $("#loader").empty();
       $("#output").empty();
       $("#progressBar").empty();
