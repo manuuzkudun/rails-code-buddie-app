@@ -28,6 +28,7 @@
   $("#run-code").on('click', function(event) {
     event.preventDefault();
     // Data to send to the API
+    console.log("<%= @language %>");
     code_data = {
       language: "<%= @language %>",
       code: myCodeMirror.getValue()

@@ -1,103 +1,79 @@
 
 <div class="container-fluid">
   <div class="row">
-    <h1 class="intro">Code in the browser with your peers!</h1>
-  </div>
-</br>
-
-  <div class="not-signup col-sm-12 col-md-6 col-lg-6">
-    <div class="mac-template">
-      <%= image_tag("user-journey.gif", :class=>"imgclass") %>
+    <div class="not-signup col-sm-12 col-md-6 col-lg-6">
+      <div class="mac-template">
+        <%= image_tag("user-journey.gif", :class=>"imgclass") %>
+      </div>
     </div>
-  </div>
 
-    <div class="signup col-sm-12 col-md-6 col-lg-6">
-
-      <div class="welcome-message">
-        <p>Start Coding Today for Free!</p>
-      </div>
-      <div class="sign-up-form">
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="email-field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email,  :class => 'form-control', :placeholder => 'ilovecoding@gmail.com'  %>
-        </div>
-      </br>
-
-      <div class="input-group">
-        <span class="input-group-addon">Password</span>
-        <%= f.password_field :password,  :class => 'form-control', :placeholder => '......' %>
-        <span class="input-group-addon" style="border-left: 0; border-right: 0;">Confirm Password</span>
-        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => '......' %>
-      </div>
-
-    </br>
-      <div><%= f.submit "Sign up", :class => 'btn btn-success btn-block' %>
-      </div>
-    </br>
-
-
-
-      <%= link_to user_github_omniauth_authorize_path, :class => "btn btn-primary", id: "sign_in" do %>
+    <!--   Sign up with github sign-up section -->
+    <div class="github-login text-center col-sm-12 col-md-6 col-lg-6">
+      <h1 class="intro">Code in the browser with your peers!</h1>
+      <%= link_to user_github_omniauth_authorize_path, :class => "btn btn-primary btn-lg github-signup", id: "sign_in" do %>
       Sign up with Github  <i class="fa fa-github"></i>
       <% end %>
-    <% end %>
     </div>
-    </div>
+  </div>
+
+
+  <div class="row feature-block">
+   <!-- Your features code/how it works -->
+   <div class="text-center  features clearfix">
+     <h1>Become a programmer with us by:</h1>
+   </br>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag("003-sports.png", :class => "featureicons") %>
+     <h2>Practicing</h2>
+     <p>Practicing preset exercises through our interactive code editor.</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag("002-business.png", :class => "featureicons") %>
+     <h2>Creating</h2>
+     <p>Creating your own coding exercises through our playground.</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag("competition-icon.png", :class => "featureicons") %>
+     <h2>Collaborating</h2>
+     <p>Collaborate with others with our real time video and chat feature to get or recieve help.</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag("001-people.png", :class => "featureicons") %>
+     <h2>Competing</h2>
+     <p>Competing with friends to see who can complete the exercise fastest.</p>
+   </div>
+ </div>
 </div>
 
-    <!-- Your features code/how it works -->
-    <div class="text-center padded features">
-      <div class="row">
-        <h1>Become a programmer with us by:</h1>
-      </br>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-       <%= image_tag("003-sports.png", :class => "featureicons") %>
-       <h2>Practicing</h2>
-       <p>Practicing preset exercises through our interactive code editor.</p>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <%= image_tag("002-business.png", :class => "featureicons") %>
-       <h2>Creating</h2>
-       <p>Creating your own coding exercises through our playground.</p>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <%= image_tag("competition-icon.png", :class => "featureicons") %>
-       <h2>Collaborating</h2>
-       <p>Collaborate with others with our real time video and chat feature to get or recieve help.</p>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-       <%= image_tag("001-people.png", :class => "featureicons") %>
-       <h2>Competing</h2>
-       <p>Competing with friends to see who can complete the exercise fastest.</p>
-     </div>
-    </div>
-    </div>
 
 
-    <!-- Available Languages -->
-    <div class="container">
-      <div class="row">
-        <h1 class="intro">Available Languages</h1>
-        <% @languages.each_with_index do |language, index| %>
-        <% class_name = "col-md-5 col-sm-12 card lang-card" %>
-        <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
-        <div class="<%= class_name %>">
-          <%= image_tag(language.icon, class: "lang-icons") %>
-          <div class="card-block">
-            <p class="language-name"><%= language.name %></p>
-          </div>
-        </div>
-        <% end %>
+
+<!-- Available Languages -->
+<div class="row available-languages">
+  <h1 class="intro">Available Languages</h1>
+  <% @languages.each_with_index do |language, index| %>
+  <%= link_to new_user_registration_path do %>
+    <% class_name = "col-md-5 col-sm-12 card lang-card" %>
+    <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
+    <div class="<%= class_name %>">
+      <div class="language-icon-container">
+        <%= image_tag(language.icon, class: "homepage-language-icons") %>
+
+      </div>
+      <div class="language-card-block">
+        <p class="language-name"><%= language.name %></p>
       </div>
     </div>
+    <% end %>
+  <% end %>
+</div>
 
-  </br>
+<div class="row new-signup-block">
   <!--   Start Coding Now Button -->
   <div class="text-center padded" id="newsletter">
     <%= link_to "Start Coding Now!", new_user_registration_path, :class => "btn btn-primary btn-lg" %>
   </div>
+</div>
+</div>
 
 
