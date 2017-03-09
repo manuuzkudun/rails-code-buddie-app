@@ -5,6 +5,7 @@ class LanguagesController < ApplicationController
     @languages = Language.all
     @work_spaces = PlaygroundWorkSpace.where(
       user: current_user,
+      exercise_id: nil
     ).order("created_at DESC")
     @work_space = PlaygroundWorkSpace.new
   end

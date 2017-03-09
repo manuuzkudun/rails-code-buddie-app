@@ -18,7 +18,7 @@
 }
 .workspace_card {
   border: 2px solid $purple;
-  height: 300px;
+  height: 200px;
   margin-top: 20px;
   border-radius: 4px;
   display: flex;
@@ -34,22 +34,78 @@
   background-color: lighten($blue, 60%);
 }
 .workspace-name {
-  font-weight: bold;
-  font-size: 20px;
-  color: $purple;
+  font-weight: 300;
+  font-size: 26px;
+  color: $blue;
+  margin-bottom: 20px;
 }
 .content {
   color: $blue;
-  font-size: 10px;
-}
-.btn-xs, .btn-group-xs > .btn {
-  padding: 1px 5px;
   font-size: 14px;
-  line-height: 1.5;
-  border-radius: 2px;
-  margin-top: 3px;
 }
 
-.push-footer {
-  height: 200px;
+.dashboard {
+  h3 {
+    font-size: 28px;
+    color: lighten($blue, 20%);
+    margin: 20px 0;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  hr {
+    margin: 70px 0;
+    color: lighten($blue, 40%);
+    border: none;
+    height: 1px;
+    background-color: lighten($blue, 40%);
+  }
 }
+
+.playgrounds-top {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    flex-grow: 1;
+  }
+
+  button {
+    border-radius: 4px;
+  }
+}
+
+.container {
+  padding: 0;
+}
+
+.workspace_card {
+  margin-top: 50px;
+  border: 1px solid lighten($blue, 20%);
+}
+
+.playgrounds-language-icon {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: center;
+
+  img {
+    height: 60px;
+    width: 60px;
+    margin: 0 10px 0 0;
+  }
+
+  p {
+    font-size: 22px;
+    font-weight: bold;
+    color: lighten($blue, 20%);
+  }
+}
+
+
+
