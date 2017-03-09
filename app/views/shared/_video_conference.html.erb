@@ -2,37 +2,29 @@
   <div id="video-conference">
     <div id="subscriber"></div>
     <div id="publisher"></div>
-    <p><%= params %></p>
   </div>
 </div>
 
-<script src="https://static.opentok.com/v2/js/opentok.js"></script>
-<script type="text/javascript">
-  var SAMPLE_SERVER_BASE_URL = 'https://code-buddie.herokuapp.com/';
+<% content_for(:after_js) do %>
 
-   var apiKey,
-    sessionId,
-    token;
+<script src="https://static.opentok.com/v2/js/opentok.js"></script>
+
+<script type="text/javascript">
 
 $(document).ready(function() {
-  // Make an Ajax request to get the OpenTok API key, session ID, and token from the server
-  $.get(SAMPLE_SERVER_BASE_URL + '/session', function(res) {
-    apiKey = res.apiKey;
-    sessionId = res.sessionId;
-    token = res.token;
 
-    initializeSession();
+  initializeSession();
 
-
-    $("#code-help").on("click", function() {
-      $("#video-conference").slideToggle()
-    });
-
+  $("#code-help").on("click", function() {
+    $("#video-conference").slideToggle()
   });
+
 });
 
 function initializeSession() {
-  var session = OT.initSession(apiKey, sessionId);
+  OPENTOK_API_KEY = '45784152';
+  session_id = '<%= @workspace.session_id %>';
+  var session = OT.initSession(OPENTOK_API_KEY, session_id);
 
   // Subscribe to a newly created stream
   session.on('streamCreated', function(event) {
@@ -48,6 +40,7 @@ function initializeSession() {
   });
 
   // Connect to the session
+  token = '<%= @tok_token %>'
   session.connect(token, function(error) {
     // If the connection is successful, initialize a publisher and publish to the session
     if (!error) {
@@ -63,8 +56,6 @@ function initializeSession() {
     }
   });
 }
-
-
-
-
 </script>
+
+<% end %>
