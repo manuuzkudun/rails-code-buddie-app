@@ -1,0 +1,8 @@
+<div class="comment-form">
+  <form action="/exercise_comments" method="post">
+    <input type="text" name="content">
+    <input type="hidden" name="exercise" value="<%= @exercise.id %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button type="submit" class="btn btn-primary">Save comment</button>
+  </form>
+</div>
