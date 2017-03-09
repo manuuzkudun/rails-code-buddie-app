@@ -35,6 +35,12 @@ class PlaygroundWorkSpacesController < ApplicationController
   def show
     @workspace = PlaygroundWorkSpace.find(params[:id])
     @tok_token = @opentok.generate_token @workspace.session_id
+    @collaborators = []
+    if @workspace.work_space_users.length > 0
+      @workspace.work_space_users.each do |user|
+        @collaborators.push(user.user)
+      end
+    end
   end
 
   def destroy
