@@ -27,7 +27,8 @@
 .lang-card:hover {
   box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
   border-color: $blue;
-  background-color: lighten($blue, 60%);
+  background-color: #d6d6d6;
+
 }
 
 .language-name {

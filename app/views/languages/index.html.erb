@@ -1,5 +1,4 @@
 <div class="dashboard">
-  <div class="text-center"> <h2>Dashboard</h2></div>
   <div class="container">
     <h3>Exercises</h3>
     <div class="row">
@@ -11,7 +10,6 @@
         <%= image_tag(language.icon, class: "lang-icons") %>
         <div class="card-block">
           <p class="language-name"><%= language.name %></p>
-          <p class="exercise-count"><%= pluralize(language.exercises.count, "Exercise") %></p>
         </div>
       </div>
       <% end %>
