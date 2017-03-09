@@ -7,12 +7,21 @@
       <textarea id="code-editor"></textarea>
       <div class="code-btns">
         <a class="btn btn-primary btn-run" id="run-code">Run code</a>
-        <a class="btn btn-success btn-help" id="code-help">Find help</a>
+        <a class="btn btn-success btn-help" id="code-help">Video chat</a>
       </div>
       <div id="output"></div>
     </div>
     <div class="col-sm-4">
      <!-- <%= render 'shared/video_conference' %> -->
+      <div class="invite-form">
+        <%= render 'shared/invite_form' %>
+      </div>
+      <div id="collaborators">
+
+      </div>
+      <div>
+        <%= render 'shared/video_conference' %>
+      </div>
     </div>
   </div>
 </div>
@@ -80,6 +89,15 @@ myCodeMirror.on('keyup', function() {
 
 
 </script>
+
+<script type="text/javascript">
+  if (<%= @collaborators.length %> > 0) {
+    $("#collaborators").html("<div class=\"collaborators\"><h4>Collaborators</h4><%= escape_javascript render(:partial => 'shared/collaborators') %></div>");
+  }
+</script>
+
+
+
 
 
 <% end %>
