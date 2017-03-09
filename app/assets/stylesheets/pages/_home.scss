@@ -14,6 +14,7 @@
 }
 
 .lang-card {
+  padding-left: 30px;
   border: 2px solid $purple;
   height: 125px;
   margin-top: 50px;
@@ -23,11 +24,11 @@
   border-color: $blue;
 }
 
-// .lang-card:hover {
-//   box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
-//   border-color: $blue;
-//   background-color: lighten($blue, 60%);
-// }
+.lang-card:hover {
+  box-shadow: 4px 7px 22px -2px lighten(grey, 40%);
+  border-color: $blue;
+  background-color: lighten($blue, 60%);
+}
 
 .language-name {
   font-weight: bold;
@@ -49,9 +50,9 @@ div.signup {
   background-repeat: no-repeat;
   padding-top: 10px;
   padding-bottom: 25px;
-  box-shadow: 2px 2px #888888;
-  border: 1px solid $blue;
-  border-radius: 5px;
+  // box-shadow: 2px 2px #888888;
+  // border: 1px solid $blue;
+  // border-radius: 5px;
 }
 
 div.not-signup{
@@ -114,7 +115,6 @@ div.how-it-works {
   text-align: center;
   color: $purple;
   background-color: #F9FAFA;
-
 }
 
 .text-center {
@@ -131,4 +131,34 @@ div.how-it-works {
 .featureicons {
   max-height: 250px;
   width: 100px;
+}
+
+.github-login {
+  background-color: white;
+  padding-top: 8em;
+}
+.available-languages {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.homepage-language-icons {
+  width: 75px;
+  height: 75px;
+}
+
+.language-card-block {
+  padding-left: 25px;
+}
+
+.new-signup-block {
+  margin-top: 50px;
+}
+
+.feature-block {
+  margin-top: 30px;
+}
+
+.github-signup {
+  margin-top: 10px;
 }
