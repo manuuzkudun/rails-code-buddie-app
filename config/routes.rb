@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+
   get 'static_pages/home'
 
   resources :work_space_users,
-    only: [:new, :create]
+  only: [:new, :create]
 
   resources :exercise_work_spaces,
-    only: [:show, :create, :update]
+  only: [:show, :create, :update]
 
   resources :playground_work_spaces,
-    only: [:index, :create, :show, :new, :destroy],
-    path: 'playgrounds'
+  only: [:index, :create, :show, :new, :destroy],
+  path: 'playgrounds'
 
   resources :exercise_comments, only: [:index, :create, :show]
 

@@ -16,10 +16,14 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module RailsCodeBuddieApp
   class Application < Rails::Application
     config.generators do |generate|
       generate.assets false
+
+    config.exceptions_app = self.routes
     end
 
     # Settings in config/environments/* take precedence over those specified here.
