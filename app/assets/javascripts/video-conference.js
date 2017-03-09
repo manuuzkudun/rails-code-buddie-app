@@ -41,7 +41,7 @@ function initializeSession() {
   session.connect(token, function(error) {
     // If the connection is successful, initialize a publisher and publish to the session
     if (!error) {
-      var publisher = OT.initPublisher('publisher', {
+      var publisher = OT.initPublisher('publ', {
         insertMode: 'append',
         width: '100%',
         height: '100%'
