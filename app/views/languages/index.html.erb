@@ -1,25 +1,25 @@
-<div class="text-center"> <h2>Dashboard</h2></div>
-<div class="container">
-  <div class="row">
-  <div><h3>Exercises</h3></div>
-    <% @languages.each_with_index do |language, index| %>
-    <%= link_to language, class: "language-link" do %>
-    <% class_name = "col-md-5 col-sm-12 card lang-card" %>
-    <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
-    <div class="<%= class_name %>">
-      <%= image_tag(language.icon, class: "lang-icons") %>
-      <div class="card-block">
-        <p class="language-name"><%= language.name %></p>
-        <p class="exercise-count"><%= pluralize(language.exercises.count, "Exercise") %></p>
+<div class="dashboard">
+  <div class="text-center"> <h2>Dashboard</h2></div>
+  <div class="container">
+    <h3>Exercises</h3>
+    <div class="row">
+      <% @languages.each_with_index do |language, index| %>
+      <%= link_to language, class: "language-link" do %>
+      <% class_name = "col-md-5 col-sm-12 card lang-card" %>
+      <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
+      <div class="<%= class_name %>">
+        <%= image_tag(language.icon, class: "lang-icons") %>
+        <div class="card-block">
+          <p class="language-name"><%= language.name %></p>
+          <p class="exercise-count"><%= pluralize(language.exercises.count, "Exercise") %></p>
+        </div>
       </div>
+      <% end %>
+      <% end %>
     </div>
-    <% end %>
-    <% end %>
+    <hr/>
+    <div class="playgrounds-wrapper">
+      <%= render 'shared/playground_work_spaces' %>
+    </div>
   </div>
 </div>
-
-<div class="spaced">
-  <h3>Playgrounds</h3>
-</div>
-
-<%= render 'shared/playground_work_spaces' %>

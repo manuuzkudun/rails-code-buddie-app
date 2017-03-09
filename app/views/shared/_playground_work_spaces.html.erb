@@ -1,7 +1,8 @@
-<div class="container">
-
-<div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Create a Playground</button>
+<div class="playgrounds-top">
+  <h3 class="playgrounds-header">Playgrounds</h3>
+  <div class="button">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Create a Playground</button>
+  </div>
 </div>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -15,29 +16,25 @@
 <% if @work_spaces.first == nil %>
 <div class="spaced"> <h5>You don't have any Playgrounds yet! </h5> </div>
 <% else %>
-  <div class="row">
-    <% @work_spaces.each_with_index do |workspace, index| %>
-    <%= link_to workspace, class: "workspace-link" do %>
-    <% class_name = "col-md-5 col-sm-12 card workspace_card" %>
-    <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
-    <div class="<%= class_name %>">
-          <div class="card-block">
-            <p class="workspace-name"><%= workspace.name %></p>
-            <%= image_tag(workspace.language.icon, class: "lang-icons") %>
-            <p class="content">Language: <%= workspace.language.name %></p>
-            <p class="content">Created: <%= workspace.created_at %></p>
-            <p class="content">Last update: <%= workspace.updated_at %></p>
-            <div class=".btns">
-              <a href="/playgrounds/<%= workspace.id %>" class="btn btn-primary btn-xs">Show workspace</a>
-              <a class="btn btn-danger btn-xs">Delete workspace</a>
-            </div>
-          </div>
+<div class="row">
+  <% @work_spaces.each_with_index do |workspace, index| %>
+  <%= link_to workspace, class: "workspace-link" do %>
+  <% class_name = "col-md-5 col-sm-12 card workspace_card" %>
+  <% class_name += " col-md-offset-2" unless index % 2 == 0 %>
+  <div class="<%= class_name %>">
+    <div class="card-block">
+      <p class="workspace-name"><%= workspace.name %></p>
+      <div class="playgrounds-language-icon">
+      <%= image_tag(workspace.language.icon, class: "lang-icons") %>
+      <p class="content"><%= workspace.language.name %></p>
       </div>
-    <% end %>
-    <% end %>
-
+      <p class="content">Created: <%= workspace.created_at %></p>
+      <p class="content">Last update: <%= workspace.updated_at %></p>
+    </div>
   </div>
-<% end %>
+  <% end %>
+  <% end %>
+
 </div>
-<div class="push-footer">
+<% end %>
 </div>
