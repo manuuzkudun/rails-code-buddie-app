@@ -27,7 +27,7 @@ apiUrl = "http://ec2-52-24-172-142.us-west-2.compute.amazonaws.com:8080/compile"
   }
 
   function showLoadingGif() {
-    $("#loader").html("<img src='/assets/ajax-loader.gif' alt='loading' />")
+    $("#loader").html("<img src='https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif' alt='loading' />")
   }
 
   function showSyntax(data) {
