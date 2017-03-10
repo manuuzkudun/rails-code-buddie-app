@@ -60,9 +60,8 @@
     $("#progressBar").empty();
     $("#passedTests").empty();
     json = {
-      langId: "<%= @lang_id %>",
+      language: "<%= @exercise.language.name %>",
       code: myCodeMirror.getValue(),
-      stdIn: "",
       test: `<%= raw @test %>`
     };
     showTestHeader();
